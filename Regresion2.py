@@ -155,19 +155,19 @@ def find_center(stereo):
 	for i in range (0,xmax):
 	   for n in range (0,ymax):
 		if stereo[i,n]>5:                      #Transformacion de la imagen en binaria
-			countc+=1			#Cuenta el numero de pixels de colision		
+			#countc+=1			#Cuenta el numero de pixels de colision		
 			stereo[i,n]=255			#Cambia el valor del pixel a blanco puro
 			points.append((i,n))		#Guarda solo los puntos blancos
 		else:
 			stereo[i,n]=0			#Cambia el valor del pixel a negro puro
 			
-			posx=posx+(i+1)			#Sumatorio de posicion X
-			posy=posy+(n+1)   		#Sumatorio de posicion Y
+			posx=posx+(i)			#Sumatorio de posicion X
+			posy=posy+(n)   		#Sumatorio de posicion Y
 			count=count+1			
 
 
 	points=np.array(points)				#Transforma lista en array
-
+	#print count
 	if count==0:					#En caso de que no haya pixels de colision evita un div por cero
 		count=1
 	posx=posx/count				#Calculo de coordenadas del centroide
@@ -299,6 +299,7 @@ def main():
 					stereo = cv2.imread(frames[n],0)
 					stereo=cv2.resize(stereo,(400,400))
 					posx,posy,points,stereo=find_center(stereo)
+					#print posx,posy
 					line1,line2,p,line_params=regression_lines(points,stereo)
 					w=200
 					img=stereo
@@ -327,14 +328,19 @@ def main():
 						Yfinal>=0
 					#p_obj=[200,200]
 					#img=paint_img(line1,line2,stereo,p_obj)
+
+					#img=cv2.circle(img,(posy,posx),10,(255,255,255),2)
+
 					n=n+1
 					#cv2.imshow('img',img)
 					#cv2.waitKey(2)
 					#frname='frame_{0:05d}'.format(n)+'.png'
 					#path=frames[n]+'/images/'
 					#cv2.imwrite(path+frname, img)
-					SteerX=(p_obj[0]-200)/200.0
-					SteerY=(p_obj[1]-200)/200.0
+					SteerX=p_obj[0]/400.0
+					SteerY=p_obj[1]/400.0					
+					#SteerX=(p_obj[0]-200)/200.0
+					#SteerY=(p_obj[1]-200)/200.0
 					f1.write(str(SteerX)+'\n') #str(p_obj[0])+'  ,'+str(p_obj[1])
 					f2.write(str(SteerY)+'\n') #str(p_obj[0])+'  ,'+str(p_obj[1])
 				f1.close()
