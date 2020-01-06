@@ -38,13 +38,13 @@ class Dronet(object):
         print("Loaded model from {}".format(weights_path))
 
         model.compile(loss='mse', optimizer='sgd')
-	print 'H'
+	
         self.model = model
-	print 'O'
+	
         self.target_size = target_size
-	print 'L'
+	
         self.crop_size = crop_size
-	print 'A'
+	print 'Process start'
 	
     def callback_feedthrough(self, data):
         self.use_network_out = data.data
@@ -85,15 +85,15 @@ class Dronet(object):
             outs = self.model.predict_on_batch(img[None])
             steer, coll = outs[0][0], outs[1][0]
 	    
-	    x=steer*100+100
-	    y=coll*100+100
-	    print  steer,coll,x,y
+	    x=int(steer*200)
+	    y=int(coll*200+100)
+	    print  outs,x,y
 	    #f1=open("/home/tev/Desktop/Log.txt","w")
 	    #f1.write(str(datetime.now())+'	'+str(steer)+'	'+str(coll)+'\n')
 	    
 	    n=n+1
 	    img=img*4
-	    img=cv2.circle(img,(x,y),10,(255,0,255),2)
+	    img=cv2.circle(img,(x,y),10,(255,255,255),2)
 	    
     
 	    cv2.imshow('img',img)
