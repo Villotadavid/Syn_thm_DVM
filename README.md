@@ -14,9 +14,15 @@ The point will be calculated computing the center of mass formula in all the non
 ![Ejcm](images/Ejcm.png)
 
 ## Regresion
+This algorithm is born to solve the singularities of the former code. The operating principle is quite similar, but this time, instead locating non-collision pixels, it will locate the position and main direction of all the collision pixels with a regresion line. 
+To place the aim point, a perpendicular line that passes through the center of the image will be drawn. And finally, de distance form the lines intersection to the aim point will be inversely porportional to the amount of collision pixels in the current image.
 ![Ejreg](images/Ejreg.png)
+
+There are also some singularities, for example when the collision pixels are in both borders of the images. In this case, the regresion line will be in  the middle of the image and the distance to the aim point will lead the dron to the collision area. Here you can find some examples.
 ![Singulreg](images/Singulreg.png)
+
 ## Sectorizacion
+This is the most complex algorithm
 ![Ejsect](images/Ejsect.png)
 
 ## pfm2png
