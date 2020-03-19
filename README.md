@@ -22,11 +22,14 @@ There are also some singularities, for example when the collision pixels are in 
 ![Singulreg](images/Singulreg.png)
 
 ## Sectorizacion
-This is the most complex algorithm
+This algorithm tries to overcome all the singularities seen before integrating the simplicity of the "Center of mass" algoritm.
+Firstly the image is divided into four subimages. Here the three subimages with less collision pixels will be selected as they are deem to be safer and the center of mass will be computed in the three of them.
+Finally,the aim point will be calculated using the center of mass the threeimages and the formula of the enter of mass again.
 ![Ejsect](images/Ejsect.png)
 
 ## pfm2png
 This script decode the images extracted from Airsim in .pfm extension, into .png.
+
 .pfm is an extension that ensures that the characters and the glyphs are correctly scaled. It is used in Airsim since depth is coded in decimal numbers within 0 and 1.
 ## Threading
 ## Rotate
