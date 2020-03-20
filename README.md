@@ -22,9 +22,11 @@ There are also some singularities, for example when the collision pixels are in 
 
 
 ## Sectorizacion
-This algorithm tries to overcome all the singularities seen before integrating the simplicity of the "Center of mass" algoritm.
+This algorithm tries to overcome all the singularities seen before integrating the simplicity of the "Center of mass" algorithm.
 Firstly the image is divided into four subimages. Here the three subimages with less collision pixels will be selected as they are deem to be safer and the center of mass will be computed in the three of them.
-Finally,the aim point will be calculated using the center of mass the threeimages and the formula of the enter of mass again.
+Finally,the aim point will be calculated using the center of mass of the three images and the formula of the center of mass again ponderating the position of each sub-center of mass with the amount of collision pixels in the sector.
+Here is an image summing up how it works.
+#
 ![Ejsect](images/Ejsect.png)
 
 ## pfm2png
@@ -32,5 +34,7 @@ This script decode the images extracted from Airsim in .pfm extension, into .png
 
 .pfm is an extension that ensures that the characters and the glyphs are correctly scaled. It is used in Airsim since depth is coded in decimal numbers within 0 and 1.
 ## Threading
+In this project a very simple prototype was develope based in Raspberry Pi. The hardware architecture is the shown in the following image.
+The configuration has been done following the UDEV rules as in this link. [UDEV Rules](http://raspberryjamberlin.de/zero360-part-2-connecting-via-otg-a-cluster-of-raspberry-pi-zeros-to-a-pi-3/ "UDEV Rules")
 ## Rotate
 ## frame2vid
