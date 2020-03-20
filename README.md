@@ -18,8 +18,8 @@ This algorithm is born to solve the singularities of the former code. The operat
 To place the aim point, a perpendicular line that passes through the center of the image will be drawn. And finally, de distance form the lines intersection to the aim point will be inversely porportional to the amount of collision pixels in the current image.
 ![Ejreg](images/Ejreg.png)
 
-There are also some singularities, for example when the collision pixels are in both borders of the images. In this case, the regresion line will be in  the middle of the image and the distance to the aim point will lead the dron to the collision area. Here you can find some examples.
-![Singulreg](images/Singulreg.png)
+There are also some singularities, for example when the collision pixels are in both borders of the images. In this case, the regresion line will be in  the middle of the image and the distance to the aim point will lead the dron to the collision area. 
+
 
 ## Sectorizacion
 This algorithm tries to overcome all the singularities seen before integrating the simplicity of the "Center of mass" algoritm.
