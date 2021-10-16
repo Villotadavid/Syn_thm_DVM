@@ -36,15 +36,6 @@ Here is an image summing up how it works.
 ![Ejsect](images/Ejsect.png)
 
 
-## pfm2png
-This script decode the images extracted from Airsim in .pfm extension, into .png.
 
-.pfm is an extension that ensures that the characters and the glyphs are correctly scaled. It is used in Airsim since depth is coded in decimal numbers within 0 and 1.
-## Threading
-In this project, a very simple prototype was developed based in Raspberry Pi. The hardware architecture is shown in the following image.
-The configuration has been done following the UDEV rules as in this link. [UDEV Rules](http://raspberryjamberlin.de/zero360-part-2-connecting-via-otg-a-cluster-of-raspberry-pi-zeros-to-a-pi-3/ "UDEV Rules").
-In this code, the ssh connection is solved using the threading library to ensure that both images are taken at the very same moment.
-## Rotate
-It is just a simple code to rotate the images a certain number of degrees.
-## frame2vid
-Convert a bunch of images into a video.
+
+
