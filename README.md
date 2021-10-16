@@ -35,18 +35,18 @@ Here is an image summing up how it works.
 
 ![Ejsect](images/Ejsect.png)
 
-##Results
-##Reliability
+## Results
+## Reliability
 Although the algorithms yield an optimal target point with the lowest possible collision probability, it should be noted that in some cases the calculation is complex due to the large number of obstacles or their position in space. Therefore, once all the points have been calculated, the probability of collision of the specific area where the drone is being directed must be analysed.
 The point calculated by the algorithms will be used as the centre of a circle of fixed radius r which will be 70 pixels.
-![Ejsect](images/Reliability.png)
+![EjReliability](images/Reliability.png)
 
-Translated with www.DeepL.com/Translator (free version)
-##Estimated values vs. Groundtruth
-![Ejsect](images/Errorcomparation.png)
+## Estimated values vs. Groundtruth
+![Ejer1](images/ErrorComparation.png)
 Error distribution analysis between estimated values and round truth. 
-![Ejsect](images/Errordistribution.png)
-#Error:RMSE
+![Ejerd](images/Errordistribution.png)
+
+## Error:RMSE
 The root mean squared error between the values for the target point predicted by the neural network and the values for the actual target point used for training will also be analysed. In this way and with a single coefficient, it will be possible to know how good the learning of the neural network can be.
 
-![Ejsect](images/Errorcomparation.png)
+![Ejer2](images/Errorcomparation.png)
